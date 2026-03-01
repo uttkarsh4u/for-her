@@ -16,7 +16,29 @@ body{
     color:white;
 }
 
-/* Stars */
+/* ===== MOON GLOW ===== */
+.moon-glow{
+    position:absolute;
+    top:90px;
+    right:160px;
+    width:240px;
+    height:240px;
+    border-radius:50%;
+    background: radial-gradient(circle, rgba(255,210,140,0.35) 0%, rgba(255,180,90,0.2) 40%, transparent 70%);
+    filter: blur(35px);
+}
+
+/* ===== MOON IMAGE ===== */
+.moon{
+    position:absolute;
+    top:120px;
+    right:190px;
+    width:200px;
+    height:auto;
+    filter: drop-shadow(0 0 10px rgba(255,220,150,0.6));
+}
+
+/* ===== STARS ===== */
 .star{
     position:absolute;
     background:white;
@@ -29,7 +51,7 @@ body{
     to{opacity:1;}
 }
 
-/* Glass Card */
+/* ===== GLASS CARD ===== */
 .container{
     position:absolute;
     top:50%;
@@ -58,7 +80,7 @@ h1{
     color:#cfe9ff;
 }
 
-/* Button */
+/* ===== BUTTON ===== */
 button{
     padding:14px 42px;
     font-size:18px;
@@ -83,6 +105,11 @@ iframe{
 
 <body>
 
+<!-- 🌙 MOON -->
+<div class="moon-glow"></div>
+<img src="moon.png" class="moon">
+
+<!-- ⭐ STARS -->
 <script>
 for(let i=0;i<120;i++){
     let star=document.createElement("div");
