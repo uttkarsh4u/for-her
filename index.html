@@ -3,42 +3,48 @@
 <head>
     <title>March 23 💛</title>
 
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Cute Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
 
     <style>
         body {
             margin: 0;
             padding: 0;
             background: linear-gradient(to bottom right, #f8cdda, #a1c4fd);
-            text-align: center;
             font-family: 'Quicksand', sans-serif;
-            color: white;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            overflow: hidden;
         }
 
         .container {
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(15px);
             padding: 50px;
-            border-radius: 25px;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+            border-radius: 30px;
+            text-align: center;
             width: 90%;
             max-width: 700px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
         }
 
         h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 42px;
-            margin-bottom: 10px;
+            font-family: 'Pacifico', cursive;
+            font-size: 44px;
+            background: linear-gradient(45deg, #ff6ec4, #7873f5);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 15px;
         }
 
-        p {
+        .typing {
             font-size: 18px;
+            color: #ff4da6;
             margin-bottom: 25px;
+            min-height: 25px;
         }
 
         button {
@@ -47,46 +53,139 @@
             border: none;
             border-radius: 30px;
             background: white;
-            color: #ff69b4;
+            color: #ff4da6;
             cursor: pointer;
             transition: 0.3s ease;
         }
 
         button:hover {
-            background: #ff69b4;
+            background: #ff4da6;
             color: white;
+            transform: scale(1.05);
         }
 
         iframe {
             margin-top: 25px;
             border-radius: 20px;
         }
+
+        /* Floating Clouds */
+        .cloud {
+            position: absolute;
+            width: 200px;
+            opacity: 0.6;
+            animation: moveClouds 40s linear infinite;
+        }
+
+        .cloud1 { top: 10%; left: -250px; animation-delay: 0s; }
+        .cloud2 { top: 60%; left: -300px; animation-delay: 10s; }
+
+        @keyframes moveClouds {
+            from { transform: translateX(0); }
+            to { transform: translateX(150vw); }
+        }
+
+        /* Floating Emojis */
+        .floating {
+            position: absolute;
+            font-size: 25px;
+            animation: float 6s infinite ease-in-out;
+            opacity: 0.8;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .heart1 { top: 15%; left: 20%; }
+        .heart2 { top: 70%; left: 80%; }
+        .star1 { top: 25%; left: 75%; }
+        .star2 { top: 80%; left: 15%; }
+
+        /* Sparkle Cursor */
+        .sparkle {
+            position: fixed;
+            pointer-events: none;
+            font-size: 14px;
+            animation: sparkleFade 0.8s linear forwards;
+        }
+
+        @keyframes sparkleFade {
+            from { opacity: 1; transform: scale(1); }
+            to { opacity: 0; transform: scale(2); }
+        }
     </style>
 </head>
 
 <body>
 
+    <!-- Clouds -->
+    <img src="https://pngimg.com/uploads/cloud/cloud_PNG27.png" class="cloud cloud1">
+    <img src="https://pngimg.com/uploads/cloud/cloud_PNG27.png" class="cloud cloud2">
+
+    <!-- Floating Emojis -->
+    <div class="floating heart1">💖</div>
+    <div class="floating heart2">✨</div>
+    <div class="floating star1">🌸</div>
+    <div class="floating star2">🦋</div>
+
     <div class="container">
         <h1>Welcome to Our Little Universe ✨</h1>
-        <p>You found the hidden portal 💖</p>
+        <div class="typing" id="typingText"></div>
 
         <button onclick="showVideo()">Enter</button>
 
         <div id="videoSection" style="display:none;">
             <iframe width="100%" height="350"
-            src="https://www.youtube.com/embed/oafxkMv4xnc"
+            src="https://www.youtube.com/embed/oafxkMv4xnc?enablejsapi=1"
             frameborder="0"
             allowfullscreen>
             </iframe>
 
-            <p>And this is just the beginning… 💛</p>
+            <p style="color:#ff4da6;">And this is just the beginning… 💛</p>
         </div>
     </div>
 
+    <!-- Background Music -->
+    <audio id="bgMusic" loop>
+        <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8f6e4e3b3.mp3?filename=soft-piano-ambient-110624.mp3" type="audio/mp3">
+    </audio>
+
     <script>
+        // Typing effect
+        const text = "You found the hidden portal 💕";
+        let index = 0;
+
+        function typeEffect() {
+            if (index < text.length) {
+                document.getElementById("typingText").innerHTML += text.charAt(index);
+                index++;
+                setTimeout(typeEffect, 50);
+            }
+        }
+
+        typeEffect();
+
         function showVideo() {
             document.getElementById("videoSection").style.display = "block";
+            document.getElementById("bgMusic").play();
         }
+
+        // Sparkle Cursor
+        document.addEventListener("mousemove", function(e) {
+            const sparkle = document.createElement("div");
+            sparkle.className = "sparkle";
+            sparkle.style.left = e.pageX + "px";
+            sparkle.style.top = e.pageY + "px";
+            sparkle.innerHTML = "✨";
+            document.body.appendChild(sparkle);
+
+            setTimeout(() => {
+                sparkle.remove();
+            }, 800);
+        });
     </script>
 
 </body>
