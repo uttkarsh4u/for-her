@@ -1,194 +1,125 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Under This Same Night Sky 🌙</title>
+    <title>March 23 💛</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Cute Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
 
-<style>
-body{
-    margin:0;
-    height:100vh;
-    overflow:hidden;
-    font-family:'Quicksand',sans-serif;
-    background:
-        radial-gradient(circle at 60% 15%, rgba(255,180,90,0.08), transparent 40%),
-        linear-gradient(to bottom, #081a33 0%, #020611 60%, #000000 100%);
-    color:white;
-}
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom right, #f8cdda, #a1c4fd);
+            font-family: 'Quicksand', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
 
-/* MOON GLOW BACK LAYER */
-.moon-glow{
-    position:absolute;
-    top:80px;
-    right:140px;
-    width:340px;
-    height:340px;
-    border-radius:50%;
-    background: radial-gradient(circle, rgba(255,200,120,0.6) 0%, rgba(255,170,80,0.3) 40%, transparent 70%);
-    filter: blur(25px);
-}
+        .container {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(15px);
+            padding: 50px;
+            border-radius: 30px;
+            text-align: center;
+            width: 90%;
+            max-width: 700px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+            position: relative;
+            z-index: 2;
+        }
 
-/* HD MOON */
-.moon{
-    position:absolute;
-    top:110px;
-    right:170px;
-    width:280px;
-    height:280px;
-    border-radius:50%;
-    background:url("https://upload.wikimedia.org/wikipedia/commons/9/9c/FullMoon2010.jpg") center/cover no-repeat;
-}
+        h1 {
+            font-family: 'Pacifico', cursive;
+            font-size: 44px;
+            background: linear-gradient(45deg, #ff6ec4, #7873f5);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 15px;
+        }
 
-/* STARS */
-.star{
-    position:absolute;
-    background:white;
-    border-radius:50%;
-    animation: twinkle 3s infinite ease-in-out alternate;
-}
+        p {
+            font-size: 18px;
+            color: #ff4da6;
+            margin-bottom: 25px;
+        }
 
-@keyframes twinkle{
-    from{
-        opacity:0.5;
-        box-shadow:0 0 2px white;
-    }
-    to{
-        opacity:1;
-        box-shadow:0 0 10px white, 0 0 18px #7fd8ff;
-    }
-}
+        button {
+            padding: 12px 30px;
+            font-size: 16px;
+            border: none;
+            border-radius: 30px;
+            background: white;
+            color: #ff4da6;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
 
-/* DREAMY CLOUDS */
-.cloud{
-    position:absolute;
-    width:900px;
-    opacity:0.15;
-    filter:blur(8px);
-    animation: drift 220s linear infinite;
-}
+        button:hover {
+            background: #ff4da6;
+            color: white;
+            transform: scale(1.05);
+        }
 
-.cloud1{
-    top:60px;
-    left:-900px;
-}
+        iframe {
+            margin-top: 25px;
+            border-radius: 20px;
+        }
 
-.cloud2{
-    top:250px;
-    left:-1200px;
-    animation-delay:60s;
-}
+        /* Floating cute emojis */
+        .floating {
+            position: absolute;
+            font-size: 25px;
+            animation: float 6s infinite ease-in-out;
+            opacity: 0.8;
+        }
 
-@keyframes drift{
-    from{ transform:translateX(0);}
-    to{ transform:translateX(250vw);}
-}
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
 
-/* CARD */
-.container{
-    position:absolute;
-    top:50%;
-    left:50%;
-    transform:translate(-50%,-50%);
-    background:rgba(0,0,30,0.55);
-    backdrop-filter:blur(15px);
-    padding:70px;
-    border-radius:25px;
-    text-align:center;
-    width:80%;
-    max-width:750px;
-    box-shadow:0 0 80px rgba(0,0,0,0.8);
-}
-
-h1{
-    font-family:'Playfair Display',serif;
-    font-size:52px;
-    text-shadow:0 0 25px rgba(255,255,255,0.7);
-}
-
-.typing{
-    font-size:20px;
-    margin:20px 0 35px;
-    color:#cfe9ff;
-}
-
-button{
-    padding:14px 40px;
-    font-size:18px;
-    border-radius:40px;
-    border:none;
-    background:rgba(255,255,255,0.9);
-    cursor:pointer;
-    transition:0.3s ease;
-}
-
-button:hover{
-    background:white;
-    transform:scale(1.05);
-}
-
-iframe{
-    margin-top:35px;
-    border-radius:18px;
-}
-</style>
+        .heart1 { top: 10%; left: 15%; animation-delay: 0s; }
+        .heart2 { top: 70%; left: 80%; animation-delay: 2s; }
+        .star1 { top: 20%; left: 75%; animation-delay: 1s; }
+        .star2 { top: 80%; left: 20%; animation-delay: 3s; }
+    </style>
 </head>
 
 <body>
 
-<div class="moon-glow"></div>
-<div class="moon"></div>
+    <!-- Floating cute elements -->
+    <div class="floating heart1">💖</div>
+    <div class="floating heart2">✨</div>
+    <div class="floating star1">🌸</div>
+    <div class="floating star2">🦋</div>
 
-<img src="https://pngimg.com/uploads/cloud/cloud_PNG16.png" class="cloud cloud1">
-<img src="https://pngimg.com/uploads/cloud/cloud_PNG16.png" class="cloud cloud2">
+    <div class="container">
+        <h1>Welcome to Our Little Universe ✨</h1>
+        <p>You found the hidden portal 💕</p>
 
-<script>
-for(let i=0;i<180;i++){
-    let star=document.createElement("div");
-    star.className="star";
+        <button onclick="showVideo()">Enter</button>
 
-    let size=Math.random()*2+1;
-    star.style.width=size+"px";
-    star.style.height=size+"px";
-    star.style.top=Math.random()*100+"vh";
-    star.style.left=Math.random()*100+"vw";
-    star.style.animationDuration=(Math.random()*2+2)+"s";
+        <div id="videoSection" style="display:none;">
+            <iframe width="100%" height="350"
+            src="https://www.youtube.com/embed/oafxkMv4xnc"
+            frameborder="0"
+            allowfullscreen>
+            </iframe>
 
-    document.body.appendChild(star);
-}
-</script>
-
-<div class="container">
-    <h1>Under This Same Night Sky 🌙</h1>
-    <div class="typing" id="typingText"></div>
-
-    <button onclick="showVideo()">Enter</button>
-
-    <div id="videoSection" style="display:none;">
-        <iframe width="100%" height="400"
-        src="https://www.youtube.com/embed/oafxkMv4xnc"
-        frameborder="0"
-        allowfullscreen>
-        </iframe>
+            <p>And this is just the beginning… 💛</p>
+        </div>
     </div>
-</div>
 
-<script>
-const text="Somewhere under these stars, it's always us ✨";
-let i=0;
-function typeEffect(){
-    if(i<text.length){
-        document.getElementById("typingText").innerHTML+=text.charAt(i);
-        i++;
-        setTimeout(typeEffect,50);
-    }
-}
-typeEffect();
-
-function showVideo(){
-    document.getElementById("videoSection").style.display="block";
-}
-</script>
+    <script>
+        function showVideo() {
+            document.getElementById("videoSection").style.display = "block";
+        }
+    </script>
 
 </body>
 </html>
