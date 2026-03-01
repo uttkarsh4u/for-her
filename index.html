@@ -10,9 +10,21 @@
             margin: 0;
             height: 100vh;
             overflow: hidden;
+            background: radial-gradient(circle at bottom, #0a1a3a 0%, #020611 70%, #000000 100%);
             font-family: 'Quicksand', sans-serif;
-            background: radial-gradient(circle at bottom, #0b1d3a 0%, #050b18 60%, #02040a 100%);
             color: white;
+        }
+
+        /* HD Moon */
+        .moon {
+            position: absolute;
+            top: 80px;
+            right: 120px;
+            width: 280px;
+            height: 280px;
+            background: url("https://upload.wikimedia.org/wikipedia/commons/e/e1/FullMoon2010.jpg") no-repeat center/cover;
+            border-radius: 50%;
+            box-shadow: 0 0 120px rgba(255,255,255,0.9);
         }
 
         /* Stars */
@@ -20,48 +32,27 @@
             position: absolute;
             background: white;
             border-radius: 50%;
-            animation: twinkle 2s infinite alternate;
+            animation: shine 2s infinite ease-in-out alternate;
         }
 
-        @keyframes twinkle {
-            from { opacity: 0.3; }
-            to { opacity: 1; }
+        @keyframes shine {
+            from {
+                opacity: 0.3;
+                box-shadow: 0 0 2px white;
+            }
+            to {
+                opacity: 1;
+                box-shadow: 0 0 12px white, 0 0 20px #9ecfff;
+            }
         }
 
-        /* Full Moon */
-        .moon {
-            position: absolute;
-            top: 80px;
-            right: 120px;
-            width: 220px;
-            height: 220px;
-            background: radial-gradient(circle at 30% 30%, #ffffff 0%, #dddddd 50%, #bbbbbb 80%);
-            border-radius: 50%;
-            box-shadow: 0 0 80px rgba(255,255,255,0.9);
-        }
-
-        /* Slow Moving Clouds */
-        .cloud {
-            position: absolute;
-            width: 600px;
-            opacity: 0.15;
-            animation: moveClouds 120s linear infinite;
-        }
-
-        .cloud1 { top: 150px; left: -700px; }
-        .cloud2 { top: 350px; left: -900px; animation-delay: 40s; }
-
-        @keyframes moveClouds {
-            from { transform: translateX(0); }
-            to { transform: translateX(200vw); }
-        }
-
+        /* Container */
         .container {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            background: rgba(0,0,20,0.6);
+            background: rgba(0,0,30,0.6);
             padding: 60px;
             border-radius: 20px;
             backdrop-filter: blur(6px);
@@ -72,7 +63,7 @@
 
         h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 46px;
+            font-size: 48px;
             text-shadow: 0 0 20px rgba(255,255,255,0.8);
             margin-bottom: 15px;
         }
@@ -110,20 +101,20 @@
     <!-- Moon -->
     <div class="moon"></div>
 
-    <!-- Clouds -->
-    <img src="https://pngimg.com/uploads/cloud/cloud_PNG16.png" class="cloud cloud1">
-    <img src="https://pngimg.com/uploads/cloud/cloud_PNG16.png" class="cloud cloud2">
-
-    <!-- Stars Script -->
+    <!-- Stars Generator -->
     <script>
-        for (let i = 0; i < 150; i++) {
+        for (let i = 0; i < 200; i++) {
             let star = document.createElement("div");
             star.className = "star";
-            let size = Math.random() * 2 + "px";
+
+            let size = Math.random() * 3 + "px";
             star.style.width = size;
             star.style.height = size;
             star.style.top = Math.random() * 100 + "vh";
             star.style.left = Math.random() * 100 + "vw";
+
+            star.style.animationDuration = (Math.random() * 2 + 1) + "s";
+
             document.body.appendChild(star);
         }
     </script>
