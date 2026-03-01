@@ -1,48 +1,85 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>March 23 💛</title>
+    <title>March 23 🌙</title>
 
-    <!-- Cute Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
 
     <style>
         body {
             margin: 0;
             padding: 0;
-            background: linear-gradient(to bottom right, #f8cdda, #a1c4fd);
+            background: linear-gradient(to bottom, #0f2027, #203a43, #2c5364);
             font-family: 'Quicksand', sans-serif;
             overflow: hidden;
+            color: white;
+        }
+
+        /* Stars */
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 2s infinite alternate;
+        }
+
+        @keyframes twinkle {
+            from { opacity: 0.3; }
+            to { opacity: 1; }
+        }
+
+        /* Moon */
+        .moon {
+            position: absolute;
+            top: 60px;
+            right: 80px;
+            width: 120px;
+            height: 120px;
+            background: radial-gradient(circle at 30% 30%, #fff, #ddd);
+            border-radius: 50%;
+            box-shadow: 0 0 40px rgba(255,255,255,0.6);
+        }
+
+        /* Clouds */
+        .cloud {
+            position: absolute;
+            width: 300px;
+            opacity: 0.2;
+            animation: moveClouds 60s linear infinite;
+        }
+
+        @keyframes moveClouds {
+            from { transform: translateX(-400px); }
+            to { transform: translateX(150vw); }
         }
 
         .container {
-            background: rgba(255, 255, 255, 0.25);
-            backdrop-filter: blur(15px);
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
             padding: 50px;
-            border-radius: 30px;
+            border-radius: 25px;
             text-align: center;
             width: 90%;
             max-width: 700px;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.2);
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
+            box-shadow: 0 0 40px rgba(0,0,0,0.8);
             z-index: 2;
         }
 
         h1 {
-            font-family: 'Pacifico', cursive;
-            font-size: 44px;
-            background: linear-gradient(45deg, #ff6ec4, #7873f5);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            font-family: 'Playfair Display', serif;
+            font-size: 42px;
+            color: #ffd6ff;
+            text-shadow: 0 0 15px rgba(255, 182, 255, 0.8);
             margin-bottom: 15px;
         }
 
         .typing {
             font-size: 18px;
-            color: #ff4da6;
+            color: #bde0fe;
             margin-bottom: 25px;
             min-height: 25px;
         }
@@ -52,15 +89,14 @@
             font-size: 16px;
             border: none;
             border-radius: 30px;
-            background: white;
-            color: #ff4da6;
+            background: #bde0fe;
+            color: #14213d;
             cursor: pointer;
             transition: 0.3s ease;
         }
 
         button:hover {
-            background: #ff4da6;
-            color: white;
+            background: #ffd6ff;
             transform: scale(1.05);
         }
 
@@ -68,41 +104,6 @@
             margin-top: 25px;
             border-radius: 20px;
         }
-
-        /* Floating Clouds */
-        .cloud {
-            position: absolute;
-            width: 200px;
-            opacity: 0.6;
-            animation: moveClouds 40s linear infinite;
-        }
-
-        .cloud1 { top: 10%; left: -250px; animation-delay: 0s; }
-        .cloud2 { top: 60%; left: -300px; animation-delay: 10s; }
-
-        @keyframes moveClouds {
-            from { transform: translateX(0); }
-            to { transform: translateX(150vw); }
-        }
-
-        /* Floating Emojis */
-        .floating {
-            position: absolute;
-            font-size: 25px;
-            animation: float 6s infinite ease-in-out;
-            opacity: 0.8;
-        }
-
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-            100% { transform: translateY(0px); }
-        }
-
-        .heart1 { top: 15%; left: 20%; }
-        .heart2 { top: 70%; left: 80%; }
-        .star1 { top: 25%; left: 75%; }
-        .star2 { top: 80%; left: 15%; }
 
         /* Sparkle Cursor */
         .sparkle {
@@ -121,34 +122,43 @@
 
 <body>
 
-    <!-- Clouds -->
-    <img src="https://pngimg.com/uploads/cloud/cloud_PNG27.png" class="cloud cloud1">
-    <img src="https://pngimg.com/uploads/cloud/cloud_PNG27.png" class="cloud cloud2">
+    <!-- Moon -->
+    <div class="moon"></div>
 
-    <!-- Floating Emojis -->
-    <div class="floating heart1">💖</div>
-    <div class="floating heart2">✨</div>
-    <div class="floating star1">🌸</div>
-    <div class="floating star2">🦋</div>
+    <!-- Moving Clouds -->
+    <img src="https://pngimg.com/uploads/cloud/cloud_PNG16.png" class="cloud" style="top:100px;">
+    <img src="https://pngimg.com/uploads/cloud/cloud_PNG16.png" class="cloud" style="top:300px; animation-delay:20s;">
+
+    <!-- Random Stars -->
+    <script>
+        for (let i = 0; i < 80; i++) {
+            let star = document.createElement("div");
+            star.className = "star";
+            star.style.width = star.style.height = Math.random() * 3 + "px";
+            star.style.top = Math.random() * 100 + "vh";
+            star.style.left = Math.random() * 100 + "vw";
+            document.body.appendChild(star);
+        }
+    </script>
 
     <div class="container">
-        <h1>Welcome to Our Little Universe ✨</h1>
+        <h1>Under This Same Night Sky 🌙</h1>
         <div class="typing" id="typingText"></div>
 
         <button onclick="showVideo()">Enter</button>
 
         <div id="videoSection" style="display:none;">
             <iframe width="100%" height="350"
-            src="https://www.youtube.com/embed/oafxkMv4xnc?enablejsapi=1"
+            src="https://www.youtube.com/embed/oafxkMv4xnc"
             frameborder="0"
             allowfullscreen>
             </iframe>
 
-            <p style="color:#ff4da6;">And this is just the beginning… 💛</p>
+            <p style="color:#ffd6ff;">And this is just the beginning… 💫</p>
         </div>
     </div>
 
-    <!-- Background Music -->
+    <!-- Soft Background Music -->
     <audio id="bgMusic" loop>
         <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8f6e4e3b3.mp3?filename=soft-piano-ambient-110624.mp3" type="audio/mp3">
     </audio>
